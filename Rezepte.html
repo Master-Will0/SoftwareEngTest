@@ -4,7 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toastbrot Rezepte</title>
-    
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+            header {
+                background-image: url('Background.jpeg');
+                background-size: cover;
+                background-position: center;
+                color: rgb(60, 7, 78);
+                text-align: center;
+                padding: 50px 0;
+            }
+            header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 55px;
+        }
+        .recipe-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .recipe {
+            text-align: center;
+        }
+        .recipe img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button {
+            background-color: rgb(198, 89, 89);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button-container button:hover {
+            background-color: rgb(198, 89, 89);
+        }
+        .meme-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .meme-container img {
+            width: 300px;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+
+<script>
+    function zufallsRezept() {
+        const rezepte = [
+            { name: "Sandwich-Toast", url: "https://www.lidl-kochen.de/rezeptwelt/sandwich-toast-mit-gouda-und-schinken-124780" },
+            { name: "French-Toast", url: "https://www.lecker.de/french-toast-grundrezept-einfach-und-schnell-69379.html" },
+            { name: "Flammkuchen-Toast", url: "https://www.chefkoch.de/rezepte/3868841588847929/Flammkuchen-Toast-mit-Schinken-und-Zwiebeln.html" },
+            { name: "Avocado-Toast", url: "https://www.gutekueche.ch/wuerziger-avocado-toast-rezept-8263" }
+        ];
+        
+        const zufall = Math.floor(Math.random() * rezepte.length);
+        window.location.href = rezepte[zufall].url;
+    }
+</script>
+
 </head>
 <body>
     <header>
@@ -14,16 +83,44 @@
     <main>
         <h2>Willkommen bei den besten Toast-Rezepten!</h2>
         <p>Wähle ein Rezept aus und genieße ein leckeres Gericht mit Toastbrot.</p>
-        <nav>
-            <ul>
-                <li><a href="https://www.lecker.de/french-toast-grundrezept-einfach-und-schnell-69379.html">French-Toast</a></li>
-                <li><a href="https://www.chefkoch.de/rezepte/3868841588847929/Flammkuchen-Toast-mit-Schinken-und-Zwiebeln.html">Flammkuchen-Toast</a></li>
-                
-            </ul>
-        </nav>
+        <div class="recipe-list">
+        <div class="recipe">
+            <a href="https://www.lidl-kochen.de/rezeptwelt/sandwich-toast-mit-gouda-und-schinken-124780"><img src="SchinkenKäseToast.jpeg" alt="Sandwich-Toast"></a>
+            <p>Sandwich-Toast</p>
+        </div>
+        <div class="recipe">
+            <a href="https://www.lecker.de/french-toast-grundrezept-einfach-und-schnell-69379.html"><img src="FrenchToast.jpeg" alt="French-Toast"></a>
+            <p>French-Toast</p>
+        </div>
+        <div class="recipe">
+            <a href="https://www.chefkoch.de/rezepte/3868841588847929/Flammkuchen-Toast-mit-Schinken-und-Zwiebeln.html"><img src="FlammkuchenToast.jpeg" alt="Flammkuchen-Toast"></a>
+            <p>Flammkuchen-Toast</p>
+        </div>
+        <div class="recipe">
+            <a href="https://www.gutekueche.ch/wuerziger-avocado-toast-rezept-8263"><img src="AvocadoToast.jpeg" alt="Avocado-Toast"></a>
+            <p>Avocado-Toast</p>
+        </div>
+    
+</div>
+
+<p>Falls Sie kein Toastbrot zu Hause haben, hier ein einfaches Rezept zum Toastbrot backen.</p>
+<div class="button-container">
+    <button onclick="window.location.href='https://www.bing.com/videos/riverview/relatedvideo?q=toastbrot+rezept&mid=76F0077C4E3E0A01716A76F0077C4E3E0A01716A&FORM=VIRE'">Zum Toastbrot-Rezept</button>
+</div>
+<div class="button-container">
+    <button onclick="zufallsRezept()">Zufälliges Rezept anzeigen</button>
+</div>
+
+<div class="meme-container">
+    <a href="Toastgrade.html">
+        <img src="perfectToast.jpeg" alt="Klicke für mehr Toast-Spaß">
+    </a>
+</div>
+
     </main>
     <footer>
         <p>&copy; 2025 Toastbrot Rezepte</p>
     </footer>
 </body>
 </html>
+
