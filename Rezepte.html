@@ -58,6 +58,20 @@
             height: auto;
             cursor: pointer;
         }
+                /* Hüpfendes Bild unten rechts */
+                .jumping-image {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+            animation: jump 1.5s infinite ease-in-out;
+        }
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
     </style>
 
 <script>
@@ -111,11 +125,17 @@
     <button onclick="zufallsRezept()">Zufälliges Rezept anzeigen</button>
 </div>
 
+<p></p>
 <div class="meme-container">
     <a href="Toastgrade.html">
         <img src="perfectToast.jpeg" alt="Klicke für mehr Toast-Spaß">
     </a>
 </div>
+
+<!-- Hüpfendes Bild unten rechts -->
+<a href="Toastgrade.html">
+    <img src="JumpingToast.jpeg" alt="Springender Toast" class="jumping-image">
+</a>
 
     </main>
     <footer>
