@@ -1,1 +1,139 @@
-. 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bild anzeigen</title>
+    <style>
+        /* Körper und HTML auf 100% Höhe setzen */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* optional für einen besseren Hintergrund */
+        }
+
+        .container {
+            position: relative;
+            width: 500px;
+            height: 333px;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .overlay {
+            position: absolute;
+            width: 33.33%;
+            background-color: white;
+        }
+
+        .overlay.top {
+            height: 45%; /* Obere Reihe etwas niedriger */
+        }
+
+        .overlay.bottom {
+            height: 55%; /* Untere Reihe etwas höher */
+        }
+
+        .hidden { 
+            display: none; 
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #toastTodayButton {
+            background-color: #2196F3;
+        }
+
+        #resetButton {
+            background-color: #f44336; /* Rote Farbe für den Reset-Button */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;">Toast-o-Meter: From Pale to Charcoal!</h1>
+        <div class="container">
+            <img src="toast_results.jpg" alt="Beschreibung des Bildes" class="image">
+            <div class="overlay top" style="top: 0; left: 0;"></div>
+            <div class="overlay top" style="top: 0; left: 33.33%;"></div>
+            <div class="overlay top" style="top: 0; left: 66.66%;"></div>
+            <div class="overlay bottom" style="top: 45%; left: 0;"></div>
+            <div class="overlay bottom" style="top: 45%; left: 33.33%;"></div>
+            <div class="overlay bottom" style="top: 45%; left: 66.66%;"></div>
+        </div>
+        <button onclick="revealNext()">Explore the Toast Levels</button>
+        <button id="toastTodayButton" onclick="revealRandom()">Your Toast Today</button>
+        <button id="resetButton" onclick="reset()">Reset</button>
+    </div>
+
+    <script>
+        let index = 0;
+        let allRevealed = false;
+
+        function revealNext() {
+            if (allRevealed) return; // Keine Aktion, wenn alle Bereiche sichtbar sind
+
+            let overlays = document.querySelectorAll('.overlay');
+            
+            // Suche den nächsten nicht freigegebenen Bereich
+            while (index < overlays.length && overlays[index].classList.contains('hidden')) {
+                index++;
+            }
+            
+            // Wenn es noch einen Bereich gibt, der freigegeben werden kann
+            if (index < overlays.length) {
+                overlays[index].classList.add('hidden');
+                index++;
+            }
+
+            // Wenn alle Bereiche freigegeben sind, setze allRevealed auf true
+            if (document.querySelectorAll('.overlay.hidden').length === overlays.length) {
+                allRevealed = true;
+            }
+        }
+
+        function revealRandom() {
+            if (allRevealed) return; // Keine Aktion, wenn alle Bereiche sichtbar sind
+
+            let overlays = document.querySelectorAll('.overlay');
+            let hiddenOverlays = Array.from(overlays).filter(overlay => !overlay.classList.contains('hidden'));
+
+            if (hiddenOverlays.length > 0) {
+                // Wählt zufällig einen verdeckten Bereich
+                let randomIndex = Math.floor(Math.random() * hiddenOverlays.length);
+                hiddenOverlays[randomIndex].classList.add('hidden');
+            }
+
+            if (document.querySelectorAll('.overlay.hidden').length === overlays.length) {
+                allRevealed = true; // Alle Bereiche wurden freigegeben
+            }
+        }
+
+        function reset() {
+            // Setze alle Bereiche zurück (alle Overlay-Elemente anzeigen)
+            let overlays = document.querySelectorAll('.overlay');
+            overlays.forEach(overlay => overlay.classList.remove('hidden'));
+
+            // Setze den Index zurück und alle Bereiche sind noch verdeckt
+            index = 0;
+            allRevealed = false;
+        }
+    </script>
+</body>
+</html>
