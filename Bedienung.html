@@ -1,1 +1,104 @@
- 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toastbrot und Toaster</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            background-image: url('https://www.example.com/background-image.jpg');
+            background-size: cover;
+            color: #00796b;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh; /* Stellt sicher, dass der Footer immer am Ende bleibt */
+        }
+        header {
+            background-color: #00695c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        h2 {
+            color: #004d40;
+        }
+        .image-container {
+            text-align: center;
+            float: right; /* Bilder rechts schweben lassen */
+            margin: 0 20px;
+        }
+        .image-container img {
+            width: 150px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 6px solid #ffc107;
+            padding: 10px;
+            margin-top: 20px 0;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Alles über Toastbrot und Toaster</h1>
+</header>
+
+<div class="content">
+    <section>
+        <h2>Was ist Toastbrot?</h2>
+        <p>Toastbrot ist ein speziell für das Rösten im Toaster entwickeltes Brot. Es ist dünner und oft weicher als normales Brot, was es perfekt für die knusprige Zubereitung im Toaster macht.</p>
+        <div class="image-container">
+            <img src="https://i.etsystatic.com/44999685/r/il/8393b4/6533153429/il_fullxfull.6533153429_j555.jpg" alt="Toastbrot">
+        </div>
+    </section>
+
+    <section>
+        <h2>Die Bedienung eines Toasters</h2>
+        <p>Die Bedienung eines Toasters ist einfach, aber es gibt einige wichtige Dinge zu beachten:</p>
+        <ol>
+            <li>Setze das Toastbrot in den Toaster ein.</li>
+            <li>Wähle die gewünschte Bräunungsstufe.</li>
+            <li>Drücke den Hebel nach unten, um den Toast zu starten.</li>
+            <li>Warte geduldig, bis der Toast automatisch aufpoppt.</li>
+        </ol>
+        <div class="image-container">
+            <img src="https://media.gettyimages.com/id/522046488/de/foto/toast-popping-out-of-toaster.jpg?s=612x612&w=gi&k=20&c=NLf1eUe33gAWE8WTPvnoZd_xkq0NFZ_3QZiYTnUklQY=" alt="Toaster">
+        </div>
+    </section>
+
+    <section class="warning">
+        <h2>Was du auf keinen Fall tun solltest!</h2>
+        <ul>
+            <li>❌ Versuche nicht, dein Toast mit einer Gabel rauszuholen, während der Toaster noch eingesteckt ist. Dein Leben ist wertvoller als dein Frühstück!</li>
+            <li>❌ Stecke keine anderen Dinge in den Toaster: CDs, Socken oder dein Handy werden NICHT knusprig und schon gar nicht lecker.</li>
+            <li>❌ Nutze den Toaster nicht als Heizung für kalte Hände – das endet nur mit verbrannten Fingern (und Stolz).</li>
+            <li>❌ Wenn dein Toast brennt, widerstehe der Versuchung, den Toaster mit Wasser zu löschen. Lösch lieber deine Hoffnungen und kauf dir einen neuen Toaster.</li>
+        </ul>
+        <img src="data:image/jpeg;base64,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" alt="Dangerous Toaster">
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 Toastbrot und Toaster</p>
+</footer>
+
+</body>
+</html>
